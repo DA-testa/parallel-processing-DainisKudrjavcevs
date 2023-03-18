@@ -1,7 +1,5 @@
 import heapq
 
-import heapq
-
 def parallel_processing(n, m, data):
     output = []
     threads = [(0, i) for i in range(n)]
