@@ -7,7 +7,10 @@ def parallel_processing(n, m, data):
     for i in range(m):
         time = data[i]
         f_time, thread_idx = heapq.heappop(threads)
-        s_time = max(f_time, output[-1][1] if output else 0)
+        if output:
+            s_time = max(threads[thread_idx], output[-1][1])
+        else:
+                s_time = threads[thread_idx]
         f_time = s_time + time
         output.append((thread_idx, s_time))
         heapq.heappush(threads, (f_time, thread_idx))
