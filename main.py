@@ -1,5 +1,7 @@
 import heapq
 
+import heapq
+
 def parallel_processing(n, m, data):
     output = []
     threads = [(0, i) for i in range(n)]
@@ -8,13 +10,14 @@ def parallel_processing(n, m, data):
         time = data[i]
         f_time, thread_idx = heapq.heappop(threads)
         if output:
-            s_time = max(threads[thread_idx], output[-1][1])
+            s_time = max(f_time, output[-1][1])
         else:
-                s_time = threads[thread_idx]
+            s_time = f_time
         f_time = s_time + time
         output.append((thread_idx, s_time))
         heapq.heappush(threads, (f_time, thread_idx))
     return output
+
 
 def main():
     n, m = map(int, input().split())
