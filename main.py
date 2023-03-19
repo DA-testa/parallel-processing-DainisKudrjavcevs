@@ -23,8 +23,8 @@ def main():
 
     result = parallel_processing(n, m, data)
 
-    for pavediens, start_time in result:
-        print(pavediens, start_time)
+    for pavediens, s_time in result:
+        print(pavediens, s_time)
 
 
 if __name__ == "__main__":
